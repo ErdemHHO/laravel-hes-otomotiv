@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\Backend\UserController;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource("/users" ,UserController::class);
+
+
