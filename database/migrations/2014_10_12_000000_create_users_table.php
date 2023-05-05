@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('password');
             $table->string('city');
             $table->string('ilce');
-            $table->string('adress');
-            $table->boolean('is_admin');
-            $table->boolean('is_active');
+            $table->string('address');
+            $table->boolean('is_admin')->default(0);
+            $table->boolean('is_active')->default(0);            
             $table->rememberToken();
             $table->timestamps();
         });

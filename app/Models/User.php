@@ -28,7 +28,7 @@ class User extends Authenticatable
         'password',
         'city',
         'ilce',
-        'adress',
+        'address',
         'is_admin',
         'is_active'
     ];
