@@ -6,76 +6,44 @@
 @section("content")
   <form action="{{url("/users")}}" method="POST" autocomplete="off">
     @csrf
+    
     <div class="row mb-3">
       <div class="col-sm-6">
-        <label for="name" class="form-label">Ad</label>
-        <input type="text" class="form-control" placeholder="Ad Giriniz" id="name" name="name" value="{{old("name")}}" required>
-        @error("name")
-        <span class="text-danger">{{$message}}</span>
-        @enderror
+        <x-input label="Ad" placeholder="Ad Giriniz" field="name"/>
       </div>
       <div class="col-sm-6 ">
-        <label for="surname" class="form-label">Soyad</label>
-        <input type="text" class="form-control" placeholder="Soyad Giriniz" id="surname" name="surname" value="{{old("surname")}}" required>
-        @error("surname")
-        <span class="text-danger">{{$message}}</span>
-        @enderror
+        <x-input label="Soyad" placeholder="Soyad Giriniz" field="surname"/>
       </div>
     </div>
     <div class="row mb-3">
       <div class="col-sm-6">
-        <label for="email" class="form-label">E-posta</label>
-        <input type="email" class="form-control" placeholder="E-Posta Giriniz" id="email" name="email" value="{{old("email")}}" required>
-        @error("email")
-        <span class="text-danger">{{$message}}</span>
-        @enderror
+        <x-input label="E-Posta" placeholder="E-Posta Giriniz" field="email" type="email"/>
       </div>
       <div class="col-sm-6  mb-3">
-        <label for="phoneNumber" class="form-label">Telefon</label>
-        <input type="tel" class="form-control" placeholder="Telefon Giriniz" id="phoneNumber" name="phoneNumber" value="{{old("phoneNumber")}}"  required>
-        @error("phoneNumber")
-        <span class="text-danger">{{$message}}</span>
-        @enderror
+        <x-input label="Telefon" placeholder="Telefon Giriniz" field="phoneNumber"/>
       </div>
       <div class="col-sm-4">
-        <label for="password" class="form-label">Şifre</label>
-        <input type="password" class="form-control" placeholder="Şifre Girniz" id="password" name="password" value="{{old("password")}}"  required>
-        @error("password")
-        <span class="text-danger">{{$message}}</span>
-        @enderror
+        <x-input label="Şifre" placeholder="Şifre Giriniz" field="password" name="password"/>
       </div>
       <div class="col-sm-4 ">
-        <label for="password-confirm" class="form-label">Şifre Tekrar</label>
-        <input type="password" class="form-control" placeholder="Şifreyi Tekrar Giriniz" id="password-confirm" name="password_confirmation" value="{{old("password_confirmation")}}" required>
+        <x-input label="Şifre Tekrar" placeholder="Şifreyi Tekrar Giriniz" field="password_confirmation" name="password"/>
       </div>
       <div class="col-sm-4">
         <div class="row mt-4">
           <div class="col-sm-6">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="is_admin" id="is_admin" value="1">
-              <label class="form-check-label" for="flexCheckChecked1">
-                Admin
-              </label>
-            </div>
+            <x-checkbox field="is_admin" label="Admin" />
           </div>
           <div class="col-sm-6">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="is_active" id="is_active" value="1">
-              <label class="form-check-label" for="flexCheckChecked2">
-                Aktif
-              </label>
-            </div>
+            <x-checkbox field="is_active" label="Aktif" />
           </div>
         </div>
                 
       </div>
       <div class="col-sm-6 mt-3">
-        <label for="city" class="form-label" >Şehir</label>
-        <input type="text" class="form-control" placeholder="Şehir" id="city" name="city" value="{{old("city")}}"  required>
+        <x-input label="Şehir" placeholder="Şehir Giriniz" field="city"/>
       </div>
       <div class="col-sm-6 mt-3">
-        <label for="ilce" class="form-label">İlçe</label>
-        <input type="text" class="form-control" id="ilce" placeholder="İlçe" name="ilce" value="{{old("ilce")}}"  required>
+        <x-input label="İlçe" placeholder="İlçe Giriniz" field="ilce"/>
       </div>
     </div>
     <div class="mb-3">
