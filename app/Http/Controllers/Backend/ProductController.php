@@ -9,6 +9,8 @@ use App\Models\Category;
 use App\Models\Seri;
 use App\Models\Car;
 use App\Models\Brand;
+use App\Models\CarProduct;
+use App\Models\seriProduct;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -39,10 +41,10 @@ class ProductController extends Controller
      */
     public function create(): View
     {
-        $categories= Category::all()->where("is_active",true);
-        $brands= Brand::all()->where("is_active",true);
-        $cars= Car::all()->where("is_active",true);
-        $series= Seri::all()->where("is_active",true);
+        $categories= Category::all();
+        $brands= Brand::all();
+        $cars= Car::all();
+        $series= Seri::all();
         return view("backend.products.insert_form",["categories"=>$categories,"brands"=>$brands,"cars"=>$cars,"series"=>$series]);
     }
 
@@ -54,14 +56,22 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request): RedirectResponse
     {
-        
+        $carIds = (array) $request->input('car_id');
+        $seriIds = (array) $request->input('seri_id');
+    
         $product = new Product();
         $data = $this->prepare($request, $product->getFillable());
         $product->fill($data);
+
         $product->save();
+        
+        $product->car()->attach($carIds);
+        $product->seri()->attach($seriIds);
 
         return Redirect::to($this->returnUrl);
     }
+    
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -71,11 +81,24 @@ class ProductController extends Controller
      */
     public function edit(Product $product): View
     {
-        $categories= Category::all()->where("is_active",true);
-        $brands= Brand::all()->where("is_active",true);
-        $cars= Car::all()->where("is_active",true);
-        $series= Seri::all()->where("is_active",true);
-        return view("backend.products.update_form",["categories"=>$categories,"brands"=>$brands,"cars"=>$cars,"series"=>$series]);
+        $carProduct = $product->car;
+        
+        $seriProduct = $product->seri;
+
+
+        $categories = Category::all();
+        $brands = Brand::all();
+        $cars = Car::all();
+        $series = Seri::all();
+        return view("backend.products.update_form",[
+            "categories"=>$categories,
+            "brands"=>$brands,
+            "cars"=>$cars,
+            "series"=>$series,
+            "product" => $product,
+            "carProduct" => $carProduct,
+            "seriProduct" => $seriProduct
+        ]);
     }
 
     /**
@@ -87,13 +110,18 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product): RedirectResponse
     {
+        $carIds = (array) $request->input('car_id');
+        $seriIds = (array) $request->input('seri_id');
+        
         $data = $this->prepare($request, $product->getFillable());
         $product->fill($data);
         $product->save();
-
+        
+        $product->car()->sync($carIds);
+        $product->seri()->sync($seriIds);
+    
         return Redirect::to($this->returnUrl);
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -103,6 +131,6 @@ class ProductController extends Controller
     public function destroy(Product $product): JsonResponse
     {
         $product->delete();
-        return response()->json(["message" => "Done", "id" => $product->Product_id]);
+        return response()->json(["message" => "Done", "id" => $product->product_id]);
     }
 }

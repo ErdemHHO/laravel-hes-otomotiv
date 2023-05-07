@@ -12,7 +12,6 @@ class CreateCarProductsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('car_id');
             $table->unsignedBigInteger('product_id');
-            $table->timestamps();
 
             $table->foreign('car_id')->references('car_id')->on('cars')->onDelete('cascade');
             $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');

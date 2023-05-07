@@ -15,7 +15,6 @@ class CreateBrandsTable extends Migration
             $table->id("brand_id");
             $table->string("name");
             $table->string("slug")->unique();
-            $table->boolean("is_active")->default(false);
             $table->softDeletes();
             $table->timestamps();     
         });

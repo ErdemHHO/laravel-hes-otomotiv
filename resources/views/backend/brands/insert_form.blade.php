@@ -18,9 +18,6 @@
                     <x-input label="Slug" placeholder="Slug giriniz" field="slug" />
                 </div>
             </div>
-            <div class="col-12">
-                <x-checkbox field="is_active" label="Aktif Marka"/>
-            </div>
         </div>
         <div class="row">
             <div class="col-12">

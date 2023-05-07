@@ -14,9 +14,9 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id("car_id");
+            $table->foreignIdFor(\App\Models\Seri::class,"seri_id");
             $table->string("name");
             $table->string("slug")->unique();
-            $table->boolean("is_active")->default(false);
             $table->softDeletes();
             $table->timestamps();     
         });

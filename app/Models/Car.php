@@ -4,6 +4,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Car extends Model
 {
@@ -13,10 +14,15 @@ class Car extends Model
 
     protected $fillable = [
         "car_id",
+        "seri_id",
         "name",
         "slug",
-        "is_active",
     ];
+
+    public function seri()
+    {
+        return $this->hasOne(Seri::class, "seri_id", "seri_id");
+    }
 
     public function product()
     {

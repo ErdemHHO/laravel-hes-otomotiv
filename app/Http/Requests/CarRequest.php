@@ -25,10 +25,11 @@ class CarRequest extends FormRequest
      */
     public function rules(): array
     {
-        //$user_id = $this->request->get("user_id");
+        $car_id=$this->request->get("car_id");
         return [
             "name" => "required",
-            "slug" => "required|sometimes|regex:/^[a-zA-Z0-9-_ ]+$/|unique:App\Models\Car,slug,"
+            "slug" => "required|sometimes|unique:App\Models\Car,slug,$car_id|regex:/^[a-zA-Z0-9-_ ]+$/",
+            "seri_id" => "required",
         ];
     }
 
@@ -38,7 +39,8 @@ class CarRequest extends FormRequest
             "name.required" => "Bu alan zorunludur.",
             "slug.required" => "Bu alan zorunludur.",
             "slug.unique" => "Girdiğiniz :attribute sistemde kayıtlıdır.",
-            "slug.regex" => "Slug alanında yabancı karakter ve boşluk kullanılamaz."
+            "slug.regex" => "Slug alanında yabancı karakter ve boşluk kullanılamaz.",
+            "category_id.required" => "Bu alan zorunludur.",
         ];
     }
 

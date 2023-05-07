@@ -14,10 +14,10 @@ class Product extends Model
 
     protected $fillable=[
         "product_id",
+        "stock_code",
         "category_id",
         "brand_id",
         "oem_number",
-        "stock_code",
         "name",
         "price",
         "cost_price",
@@ -39,5 +39,13 @@ class Product extends Model
     public function car()
     {
         return $this->belongsToMany(Car::class, 'carProducts', 'product_id', 'car_id');
+    }
+    public function seri()
+    {
+        return $this->belongsToMany(Car::class, 'seriProducts', 'product_id', 'seri_id');
+    }
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class, "product_id", "product_id");
     }
 }

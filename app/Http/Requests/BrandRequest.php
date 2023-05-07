@@ -25,10 +25,10 @@ class brandRequest extends FormRequest
      */
     public function rules(): array
     {
-        //$user_id = $this->request->get("user_id");
+        $brand_id=$this->request->get("brand_id");
         return [
             "name" => "required",
-            "slug" => "required|sometimes|regex:/^[a-zA-Z0-9-_ ]+$/|unique:App\Models\Brand,slug,"
+            "slug" => "required|sometimes|unique:App\Models\Brand,slug,$brand_id|regex:/^[a-zA-Z0-9-_ ]+$/"
         ];
     }
 

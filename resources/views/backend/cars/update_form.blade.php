@@ -10,21 +10,31 @@
         @method("PUT")
         <input type="hidden" name="car_id" value="{{$car->car_id}}">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="mt-2">
                     <x-input label="Araba Adı" placeholder="Araba adı giriniz" field="name"
                              value="{{$car->name}}"/>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="mt-2">
                     <x-input label="Slug" placeholder="Slug giriniz" field="slug" value="{{$car->slug}}"/>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <x-checkbox field="is_active" label="Aktif Araba" checked="{{$car->is_active == 1}}"/>
+            <div class="col-lg-4">
+                <div class="mt-2">
+                    <label class="form-label" for="seri_id">Seri Şeçiniz</label>
+                    <br/>
+                    <select name="seri_id" id="seri_id" class="form-control">
+                        <option value="" disabled>Şeçiniz</option>
+                        @foreach($series as $seri)
+                            <option value="{{$seri->seri_id}}" {{$car->seri_id==$seri->seri_id ? "selected" : ""}}>{{$seri->name}}</option>
+                        @endforeach
+                    </select>
+                    @error("brand_id")
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
+                </div>
             </div>
         </div>
         <div class="row">

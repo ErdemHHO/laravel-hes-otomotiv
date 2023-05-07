@@ -18,9 +18,6 @@
                     <x-input label="Slug" placeholder="Slug giriniz" field="slug" />
                 </div>
             </div>
-            <div class="col-lg-6">
-                <x-checkbox field="is_active" label="Aktif Kategori"/>
-            </div>
         </div>
         <div class="row">
             <div class="col-12">

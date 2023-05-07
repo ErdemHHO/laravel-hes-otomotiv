@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CarRequest;
 use App\Models\Car;
+use App\Models\Seri;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -35,7 +36,8 @@ class CarController extends Controller
      */
     public function create(): View
     {
-        return view("backend.cars.insert_form");
+        $series= Seri::all();
+        return view("backend.cars.insert_form",["series"=>$series]);
     }
 
     /**
@@ -62,7 +64,8 @@ class CarController extends Controller
      */
     public function edit(Car $car): View
     {
-        return view("backend.cars.update_form", ["car" => $car]);
+        $series= Seri::all();
+        return view("backend.cars.update_form", ["car" => $car,"series"=>$series]);
     }
 
     /**

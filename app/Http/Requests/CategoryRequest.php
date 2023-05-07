@@ -26,10 +26,10 @@ class CategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        //$user_id = $this->request->get("user_id");
+        $category_id=$this->request->get("category_id");
         return [
             "name" => "required",
-            "slug" => "required|sometimes|regex:/^[a-zA-Z0-9-_ ]+$/|unique:App\Models\Category,slug,"
+            "slug" => "required|sometimes|unique:App\Models\Category,slug,$category_id|regex:/^[a-zA-Z0-9-_ ]+$/"
         ];
     }
 

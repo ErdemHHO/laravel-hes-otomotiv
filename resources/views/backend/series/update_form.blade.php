@@ -23,11 +23,6 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12">
-                <x-checkbox field="is_active" label="Aktif Seri" checked="{{$seri->is_active == 1}}"/>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-12">
                 <button type="submit" class="btn btn-primary mt-2"><span data-feather="save"></span> KAYDET</button>
             </div>

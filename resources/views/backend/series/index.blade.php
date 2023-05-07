@@ -11,7 +11,6 @@
                 <th scope="col">Sıra No</th>
                 <th scope="col">Adı</th>
                 <th scope="col">Slug</th>
-                <th scope="col">Durum</th>
                 <th scope="col">İşlemler</th>
             </tr>
         </thead>
@@ -22,13 +21,6 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$seri->name}}</td>
                     <td>{{$seri->slug}}</td>
-                    <td>
-                        @if($seri->is_active == 1)
-                            <span class="badge bg-success">Aktif</span>
-                        @else
-                            <span class="badge bg-danger">Pasif</span>
-                        @endif
-                    </td>
                     <td>
                         <ul class="nav justify-content-center">
                             <li class="nav-item">

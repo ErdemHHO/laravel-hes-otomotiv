@@ -15,11 +15,22 @@ class Seri extends Model
         "seri_id",
         "name",
         "slug",
-        "is_active",
     ];
 
+    public function car()
+    {
+        return $this->hasMany(Car::class, "seri_id", "seri_id");
+    }
+    public function series(): HasMany
+    {
+        return $this->hasMany(Seri::class, "seri_id", "seri_id");
+    }
+    public function product()
+    {
+        return $this->belongsToMany(Product::class, 'seriProducts', 'seri_id', 'product_id');
+    }
     public function products(): HasMany
     {
-        return $this->hasMany(Product::class, "seri_id", "seri_id");
+        return $this->hasMany(Product::class, "category_id", "category_id");
     }
 }

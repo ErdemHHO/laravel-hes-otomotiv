@@ -1,0 +1,669 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+@media only screen and (min-width: 1000px) {
+    .araba{
+		transform: translateX(1000px);
+		transition: transform 250ms ease-in-out;
+	}
+	html:hover .araba{
+		transform: translateX(300px);
+		transition: all 5s;
+	}	
+  }
+
+:root{
+
+	--main-color: #d90429;
+	--main-color-alt: #fd052f;
+	--text-color: #111;
+	--bg-color: #fff;
+}
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', 'Bahnschrift', sans-serif;
+	transition: 0.3s ease;
+	text-decoration: none;
+	list-style: none;
+	color: inherit;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-size: 16px;
+}
+
+/*Custom scrollbar*/
+html::-webkit-scrollbar {
+	width: 0.5rem;
+	background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+	width: 0.5rem;
+	border-radius: 0.5rem;
+	background: var(--text-color);
+}
+
+body {
+	color: var(--text-color);
+}
+
+img {
+	width: 100%;
+}
+
+.container {
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+section {
+	padding: 3rem 0;
+}
+
+
+/*========================== HEADER =================================*/
+.header {
+	display: block;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+}
+
+.header.shadow {
+	background: var(--bg-color);
+	box-shadow: 0 0.1rem 0.7rem rgba(0, 0, 0, 0.2);
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1.5rem 2rem;
+}
+
+#menu-icon {
+	font-size: 1.5rem;
+	cursor: pointer;
+	color: var(--text-color);
+	display: none;
+}
+
+.logo {
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+.logo span {
+	color: var(--main-color);
+}
+
+.nav__links {
+	display: flex;
+	column-gap: 2rem;
+}
+
+.nav__links a {
+	font-size: 1rem;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.nav__links .whatsapp a{
+	font-size: 1rem;
+	text-transform:none !important;
+	color: chartreuse !important;
+	font-weight: 500;
+}
+
+.nav__links a:hover,
+ .nav__links a.active {
+	color: var(--main-color);
+	border-bottom: 0.2rem solid var(--main-color);
+}
+
+#search-icon {
+	font-size: 1.5rem;
+	cursor: pointer;
+	color: var(--bg-color);
+}
+
+.header.shadow #search-icon {
+	color: var(--text-color);
+}
+
+.search__box {
+	position: absolute;
+	top: 110%;
+	left: 0;
+	right: 0;
+	background: var(--bg-color);
+	box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.15);
+	border: 0.1rem solid var(--main-color);
+	border-radius: 0.5rem;
+	transform: scale(0);
+	transform-origin: top;
+}
+
+.search__box.active {
+	transform: scale(1);
+}
+
+.search__box input {
+	width: 100%;
+	padding: 1.2rem;
+	border: none;
+	outline: none;
+	background: transparent;
+	font-size: 1rem;
+}
+
+
+
+/* =========================== HOME =============================== */
+.home {
+	width: 100%;
+	min-height: 640px;
+	display: flex;
+	align-items: center;
+	background-image: url('./images/bmwback.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center left;
+}
+
+.home__text {
+	padding-left: 8rem;
+}
+
+.home__text h1 {
+	font-size: 2.4rem;
+}
+
+.home__text span {
+	color: var(--main-color);
+}
+
+.home__text p {
+	font-size: 1rem;
+	/*font-weight: 300;*/
+	margin: 0.5rem 0 1.5rem;
+}
+
+.btn {
+	display: inline-block;
+	padding: 0.8rem 1.6rem;
+}
+a{
+	text-decoration: none;
+}
+
+
+/* =========================== CARS =============================== */
+.heading {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.heading span {
+	font-weight: 500;
+	color: var(--main-color);
+}
+
+.heading h2	{
+	margin-bottom: 0.6rem;
+}
+
+.heading p {
+	font-size: 0.9rem;
+	font-weight: 300;
+}
+
+.cars__container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	margin-top: 2rem;
+}
+
+.cars__container .box {
+	flex: 1 1 17rem;
+	position: relative;
+	height: 14rem;
+	border-radius: 0.5rem;
+	overflow: hidden;
+}
+
+.cars__container .box::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 1;
+}
+
+.cars__container .box img {
+	height: 100%;
+	object-fit: cover;
+	overflow: hidden;
+}
+
+.cars__container .box:hover img {
+	transform: scale(1.1);
+}
+
+/*.cars__container .box img:hover {
+	transform: scale(1.1);
+}*/
+
+.cars__container .box h3 {
+	position: absolute;
+	bottom: 1rem;
+	left: 1rem;
+	color: var(--bg-color);
+	font-size: 1.1rem;
+	z-index: 2;
+}
+
+.cars__container .box:hover h3 {
+	color: var(--main-color-alt);
+}
+
+
+
+/* =========================== ABOUT =============================== */
+.about {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1.5rem;
+	margin-bottom: 5rem;
+}
+
+.about__img {
+	flex: 1 1 21rem;
+}
+
+.about__text {
+	flex: 1 1 21rem;
+}
+
+.about__text span {
+	font-weight: 500;
+	color: var(--main-color);
+}
+
+.about__text h2 {
+	font-size: 1.7rem;
+	line-height: 1.4;
+}
+
+.about__text p {
+	font-size: 0.9rem;
+	margin: 0.5rem 0 1.5rem;
+}
+
+
+
+
+/* =========================== PARTS =============================== */
+.parts__container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	margin-top: 2rem;
+}
+
+.parts__container .box {
+	flex: 1 1 17rem;
+	position: relative;
+	padding: 1.2rem;
+	display: flex;
+	flex-direction: column;
+	background: #f6f6f6;
+	border-radius: 0.5rem;
+}
+
+.parts__container .box img {
+	width: 100%;
+	height: 10rem;
+	object-fit: contain;
+	object-position: center;
+	margin-bottom: 1rem;
+}
+
+.parts__container .box h3 {
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+
+.parts__container .box span {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: var(--main-color);
+}
+
+.parts__container .box p {
+	color: var(--main-color);
+	font-size: 0.9rem;
+	font-family: inherit;
+	margin-bottom: 1rem;
+}
+
+.parts__container .box .stars {
+	display: flex;
+	align-items: center;
+	margin-bottom: 0.8rem;
+}
+
+.parts__container .box .stars i {
+	color: #ffd700;
+	margin-right: 0.2rem;
+	font-size: 0.8rem;
+}
+
+.parts__container .box .buttons {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.parts__container .box .details {
+	display: inline-block;
+	padding: 0.8rem 1.6rem;
+	color: var(--text-color);
+	border: 0.1rem solid var(--text-color);
+}
+
+.parts__container .box .details:hover {
+	color: var(--main-color);
+	border: 0.1rem solid var(--main-color);
+}
+.box .buy {
+	display: inline-block;
+	padding: 0.8rem 1.6rem;
+	color: var(--text-color);
+	border: 0.1rem solid var(--text-color);
+}
+.box .buy:hover {
+	color: #05f545;
+	border: 0.1rem solid #05f545;
+}
+.part-text{
+    color: #000 !important;
+}
+
+
+/* =========================== BLOG =============================== */
+.blog__container {
+	display: flex;
+	flex-wrap: wrap;
+	gap:  2rem;
+	margin-top: 2rem;
+}
+
+.blog__container .box {
+	flex: 1 1 15rem;
+	padding: 1.3rem;
+}
+
+.blog__container .box:hover {
+	background: #f6f6f6;
+}
+
+.blog__container .box img {
+	height: 11rem;
+	object-fit: cover;
+}
+
+.blog__container .box span {
+	font-size: 0.8rem;
+	color: var(--main-color);
+}
+
+.blog__container .box h3 {
+	font-size: 1.2rem;
+}
+
+.blog__container .box p {
+	font-size: 0.9rem;
+	margin: 0.3rem 0;
+}
+
+.blog__container .box .blog-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3rem;
+}
+
+.blog__container .box .blog-btn i {
+	font-size: 0.9rem;
+}
+
+.blog__container .box .blog-btn:hover {
+	color: var(--main-color);
+	gap: 0.7rem;
+}
+ 
+
+/* =========================== MARKALAR =============================== */
+.card img{
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+	margin-bottom: 1rem;
+}
+
+/* =========================== FOOTER =============================== */
+.footer {
+	background: var(--text-color);
+	color: var(--bg-color);
+	border-top: 0.1rem solid var(--main-color);
+}
+
+.footer__container {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 3rem 1rem;
+}
+
+.footer__container .logo {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.footer__container .footer__box {
+	display: flex;
+	flex-direction: column;
+}
+
+.social__links {
+	display: flex;
+	align-items: center;
+}
+
+.social__links a {
+	margin-right: 1.5rem;
+	font-size: 1.2rem;
+	color: var(--bg-color);
+}
+
+.social__links a:hover {
+	color: var(--main-color);
+}
+
+.footer__container .footer__links h3 {
+	font-size: 1.1rem;
+	margin-bottom: 1rem;
+}
+
+.footer__links a,
+.footer__links p {
+	font-size: 0.9rem;
+ 	color: #818181;
+ 	margin-bottom: 0.7rem;
+}
+
+.footer__links a:hover {
+	color: var(--main-color);
+}
+
+.copyright {
+	text-align: center;
+	padding: 1rem;
+	font-size: 0.8rem;
+}
+
+
+
+
+
+/*================= Media Queries ============================*/
+
+@media (max-width: 1080px) {
+	
+	.container {
+			margin: 0 1.5rem;
+		}
+}
+
+
+@media(max-width: 991px) {
+	.home__text {
+		padding-left: 3rem;
+	}
+
+	.home__text h1 {
+		font-size: 2.2rem;
+	}
+
+	
+}
+
+
+@media(max-width: 920px) {
+
+	#search-icon {
+		color: var(--text-color);
+	}
+
+	.blog__container {
+		gap: 1rem;
+	}
+}
+
+
+@media(max-width: 768px) {
+	.nav {
+		padding: 1rem 0;
+	}
+
+	#menu-icon {
+		display: block;
+	}
+
+	.nav__links {
+		position: absolute;
+		top: 100%;
+		right: 0;
+		left: 0;
+		flex-direction: column;
+		gap: 0.5rem;
+		text-align: center;
+		box-shadow: 0.2rem 0.2rem 1.2rem rgba(0, 0, 0, 0.2);
+		z-index: inherit;
+		background: var(--bg-color);
+		clip-path: circle(0% at 0% 0%);
+	}
+
+	.nav__links.active {
+		clip-path: circle(144% at 0% 0%);
+	}
+
+	.nav__links a {
+		display: block;
+		padding: 1rem;
+	}
+
+	.nav__links a:hover,
+	 .nav__links a.active {
+	 	border-bottom: none;
+	 	background-color: var(--main-color);
+	 	color: var(--bg-color);
+	 }
+
+	 .blog__container .box {
+	 	padding: 0.2rem;
+	 }
+
+}
+
+
+@media(max-width: 700px) {
+
+	.about {
+		flex-direction: column-reverse;
+	}
+
+	.about__text {
+		text-align: center;
+	}
+
+}
+
+
+@media(max-width: 600px) {
+
+	html {
+		font-size: 14px;
+	}
+
+	.heading {
+		padding: 0 1.5rem;
+	}
+
+	.footer__container {
+		flex-direction: column;
+	}
+}
+
+
+@media(max-width: 375px) {
+	.home {
+		min-height: 500px;
+	}
+
+	.home__text {
+		padding-left: 1rem
+	}
+
+	.blog__container {
+		gap: 2rem;
+	}
+}
+.link{
+	color: #000000;
+}
+.link:hover{
+	color:#d90429;
+	text-decoration: underline;
+}
+
+.dahaFazla:hover{
+	color: #d90429;
+	text-decoration: underline;
+}
+
+
+
+
+

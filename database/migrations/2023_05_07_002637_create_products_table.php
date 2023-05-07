@@ -14,10 +14,10 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id("product_id");
+            $table->string("stock_code")->unique();
             $table->foreignIdFor(\App\Models\Category::class,"category_id");
             $table->foreignIdFor(\App\Models\Brand::class,"brand_id");
             $table->string("oem_number");
-            $table->string("stock_code")->unique();
             $table->string("name");
             $table->decimal("price");
             $table->decimal("cost_price");
@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->text("description")->nullable();
             $table->string("slug")->unique();
             $table->boolean('sales_format')->default(0);
-            $table->boolean("is_active")->default(false);
+            $table->boolean('is_active')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

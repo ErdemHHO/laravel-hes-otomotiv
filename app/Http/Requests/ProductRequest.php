@@ -26,11 +26,12 @@ class ProductRequest extends FormRequest
      */
     public function rules(): array
     {
+        $product_id=$this->request->get("product_id");
         return [
             "category_id" => "required",
             "brand_id" => "required",
             "oem_number" => "required|regex:/^[a-zA-Z0-9-_ ]+$/|numeric",
-            "stock_code" => "required||unique:App\Models\Product",
+            "stock_code" => "required|sometimes|unique:App\Models\Product,stock_code,$product_id",
             "name" => "required|min:3",
             "price" => "required|numeric|min:0",
             "cost_price" => "required|numeric|min:0",

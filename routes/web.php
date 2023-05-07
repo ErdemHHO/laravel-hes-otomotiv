@@ -12,18 +12,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SeriController;
 use App\Http\Controllers\Backend\CarController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ProductImageController;
 
-
-Route::get('/', function () {
-    return "Selam";
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::resource("/users" ,UserController::class);
 Route::get("/users/{user}/change-password" ,[UserController::class , 'passwordForm']);
@@ -45,3 +43,5 @@ Route::resource("/cars", CarController::class);
 Route::resource("/brands", BrandController::class);
 
 Route::resource("/products", ProductController::class);
+
+Route::resource("/products/{product}/images", ProductImageController::class);

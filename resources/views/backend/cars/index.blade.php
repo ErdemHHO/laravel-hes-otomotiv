@@ -10,8 +10,8 @@
             <tr>
                 <th scope="col">Sıra No</th>
                 <th scope="col">Adı</th>
+                <th scope="col">Serisi</th>
                 <th scope="col">Slug</th>
-                <th scope="col">Durum</th>
                 <th scope="col">İşlemler</th>
             </tr>
         </thead>
@@ -21,14 +21,8 @@
                 <tr id="{{$car->car_id}}">
                     <td>{{$loop->iteration}}</td>
                     <td>{{$car->name}}</td>
+                    <td>{{$car->seri->name}}</td>
                     <td>{{$car->slug}}</td>
-                    <td>
-                        @if($car->is_active == 1)
-                            <span class="badge bg-success">Aktif</span>
-                        @else
-                            <span class="badge bg-danger">Pasif</span>
-                        @endif
-                    </td>
                     <td>
                         <ul class="nav justify-content-center">
                             <li class="nav-item">

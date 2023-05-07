@@ -15,7 +15,6 @@ class CreateSerisTable extends Migration
             $table->id("seri_id");
             $table->string("name");
             $table->string("slug")->unique();
-            $table->boolean("is_active")->default(false);
             $table->softDeletes();
             $table->timestamps();      
         });

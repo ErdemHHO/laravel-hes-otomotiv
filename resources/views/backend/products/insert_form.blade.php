@@ -29,7 +29,7 @@
                     <label class="form-label" for="category_id">Kategori Şeçiniz</label>
                     <br/>
                     <select name="category_id" id="category_id" class="form-control">
-                        <option value="-1">Şeçiniz</option>
+                        <option value="" disabled>Şeçiniz</option>
                         @foreach($categories as $category)
                             <option value="{{$category->category_id}}">{{$category->name}}</option>
                         @endforeach
@@ -44,7 +44,7 @@
                     <label class="form-label" for="brand_id">Marka Şeçiniz</label>
                     <br/>
                     <select name="brand_id" id="brand_id" class="form-control">
-                        <option value="-1">Şeçiniz</option>
+                        <option value="" disabled>Şeçiniz</option>
                         @foreach($brands as $brand)
                             <option value="{{$brand->brand_id}}">{{$brand->name}}</option>
                         @endforeach
@@ -54,9 +54,8 @@
                     @enderror
                 </div>
             </div>
-
-            
-            {{-- <div class="mt-2 m-1">
+           
+           <div class="mt-2 m-1">
                 <p>Seriler</p>
                 <div class="form-group">
                     <div class="row">
@@ -65,10 +64,10 @@
                             <div class="form-check">
                                 <input class="form-check-input"
                                        type="checkbox"
-                                       id="seri_name"
-                                       name="seri_name"
-                                       value="{{$seri->name}}">
-                                <label class="form-check-label ml-1" for="seri_name">
+                                       id="seri_id[]"
+                                       name="seri_id[]"
+                                       value="{{$seri->seri_id}}">
+                                <label class="form-check-label ml-1" for="seri_id">
                                     {{$seri->name}}
                                 </label>
                             </div>
@@ -77,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="mt-2 m-1">
                 <p>Arabalar</p>
                 <div class="form-group">
@@ -87,10 +86,10 @@
                             <div class="form-check">
                                 <input class="form-check-input"
                                        type="checkbox"
-                                       id="car_name"
-                                       name="car_name"
-                                       value="{{$car->name}}">
-                                <label class="form-check-label ml-1" for="car_name">
+                                       id="car_id[]"
+                                       name="car_id[]"
+                                       value="{{$car->car_id}}">
+                                <label class="form-check-label ml-1" for="car_id">
                                     {{$car->name}}
                                 </label>
                             </div>
@@ -98,7 +97,7 @@
                         @endforeach
                     </div>
                 </div>
-            </div> --}}
+            </div> 
 
             <div class="col-lg-4">
                 <div class="mt-2">
@@ -120,12 +119,25 @@
                     <x-input label="Slug" placeholder="Slug giriniz" field="slug" />
                 </div>
             </div>
-        </div>
-        <div class="col-sm-2">
-            <x-checkbox field="is_active" label="Aktif Ürün"/>
+            <div class="col-sm-2 mt-2">
+                <x-checkbox field="is_active" label="Aktif Ürün"/>
+            </div>
+            <div class="col-sm-2 mt-2">
+                <x-checkbox field="sales_format" label="Takım Halinde"/>
+            </div>
+            <div class="col-lg-12">
+                <div class="mt-2">
+                    <label for="description" class="form-label">Kısa Açıklama:</label>
+                        <input type="text"
+                            class="form-control pb-5"
+                            id="description"
+                            name="description"
+                            placeholder="Kısa açıklama giriniz(Boş geçilebilir.)">
+                </div>
+            </div>
         </div>
 
-        <div class="col-12 d-grid gap-2">
+        <div class="col-12 d-grid gap-2 mt-3">
             <button type="submit" class="btn btn-primary"><span data-feather="save"></span> KAYDET
             </button>
         </div>

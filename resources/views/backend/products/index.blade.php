@@ -16,6 +16,8 @@
             <th scope="col">Stok</th>
             <th scope="col">Maliyet Fiyatı</th>
             <th scope="col">Satış Fiyatı</th>
+            <th scope="col">Satış Türü</th>
+            <th scope="col">Durum</th>
             <th scope="col">İşlemler</th>
         </tr>
         </thead>
@@ -24,13 +26,6 @@
             @foreach($products as $product)
                 <tr id="{{$product->product_id}}">
                     <td>{{$product->name}}</td>
-                    <td>
-                        @if($product->is_active == 1)
-                            <span class="badge bg-success">Aktif</span>
-                        @else
-                            <span class="badge bg-danger">Pasif</span>
-                        @endif
-                    </td>
                     <td>{{$product->stock_code}}</td>
                     <td>{{$product->oem_number}}</td>
                     <td>{{$product->category->name}}</td>
@@ -38,6 +33,20 @@
                     <td>{{$product->stock}}</td>
                     <td>{{$product->cost_price}} ₺</td>
                     <td>{{$product->price}} ₺</td>
+                    <td>
+                        @if($product->sales_format == 1)
+                            <span class="badge bg-danger">Takım</span>
+                        @else
+                            <span class="badge bg-warning">Adet</span>
+                        @endif
+                    </td>
+                    <td>
+                        @if($product->is_active == 1)
+                            <span class="badge bg-success">Aktif</span>
+                        @else
+                            <span class="badge bg-danger">Pasif</span>
+                        @endif
+                    </td>
                     <td>
                         <ul class="nav justify-content-center">
                             <li class="nav-item">
@@ -54,13 +63,20 @@
                                     Sil
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black"
+                                   href="{{url("/products/$product->product_id/images")}}">
+                                   <i class="bi bi-image" style="font-size: 15px;"></i>
+                                    Fotoğraflar
+                                </a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
             @endforeach
         @else
             <tr>
-                <td colspan="9">
+                <td colspan="11">
                     <p class="text-center">Herhangi bir ürün bulunamadı.</p>
                 </td>
             </tr>

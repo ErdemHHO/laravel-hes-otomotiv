@@ -26,10 +26,10 @@ class SeriRequest extends FormRequest
      */
     public function rules(): array
     {
-        //$user_id = $this->request->get("user_id");
+        $seri_id=$this->request->get("seri_id");
         return [
             "name" => "required",
-            "slug" => "required|sometimes|regex:/^[a-zA-Z0-9-_ ]+$/|unique:App\Models\Seri,slug,"
+            "slug" => "required|sometimes|unique:App\Models\Seri,slug,$seri_id|regex:/^[a-zA-Z0-9-_ ]+$/"
         ];
     }
 
