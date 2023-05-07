@@ -59,7 +59,7 @@
     <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
     <div class="navbar-nav">
       <div class="nav-item text-nowrap">
-        <a class="nav-link px-3" href="#">Sign out</a>
+        <a class="nav-link px-3" href="#">Çıkış Yap</a>
       </div>
     </div>
   </header>
@@ -70,14 +70,49 @@
         <div class="position-sticky pt-3 sidebar-sticky">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">
+              <a class="nav-link side-link" aria-current="page" href="#">
                 <span data-feather="home" class="align-text-bottom"></span>
                 <i class="bi bi-house-door-fill" style="font-size: 18px;"></i>
                 Yönetim Paneli
               </a>
             </li>
+            <li class="nav-item ">
+              <a class="nav-link side-link" href="/products">
+                <span data-feather="file" class="align-text-bottom"></span>
+                <i class="bi bi-table" style="font-size: 18px;"></i>
+                Ürünler
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link side-link" href="/categories">
+                <span data-feather="file" class="align-text-bottom"></span>
+                <i class="bi bi-border-all" style="font-size: 18px;"></i>
+                Kategoriler
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link side-link" href="/series">
+                <span data-feather="file" class="align-text-bottom"></span>
+                <i class="bi bi-123" style="font-size: 18px;"></i>
+                Seriler
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link side-link" href="/cars">
+                <span data-feather="file" class="align-text-bottom"></span>
+                <i class="bi bi-car-front-fill" style="font-size: 18px;"></i>
+                Arabalar
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link side-link" href="/brands">
+                <span data-feather="file" class="align-text-bottom"></span>
+                <i class="bi bi-star-fill" style="font-size: 18px;"></i>
+                Markalar
+              </a>
+            </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link side-link" href="/users">
                 <span data-feather="file" class="align-text-bottom"></span>
                 <i class="bi bi-people-fill" style="font-size: 18px;"></i>
                 Kullanıcılar
@@ -93,7 +128,8 @@
           <h1 class="h2">@yield("title")</h1>
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
-              <a href="@yield("add_new_url")" class="btn btn-sm btn-outline-success"> @yield("button")</a>
+              <a href="@yield("btn_url")" class="btn btn-sm btn-outline-success"><span
+                data-feather="@yield("btn_icon")"></span> @yield("btn_label")</a>
             </div>
           </div>
         </div>

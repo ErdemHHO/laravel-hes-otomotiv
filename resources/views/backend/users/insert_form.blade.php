@@ -1,8 +1,9 @@
 @extends("backend.shared.backend_theme")
 @section("title","Kullanıcı Modülü")
 @section("subtitle","Yeni Kullanıcı Ekle")
-@section("button","Kullanıcılar") 
-@section("add_new_url",url("/users")) 
+@section("btn_url",url("/users"))
+@section("btn_label","Kullanıcılar")
+@section("btn_icon","plus")
 @section("content")
   <form action="{{url("/users")}}" method="POST" autocomplete="off">
     @csrf
@@ -23,10 +24,10 @@
         <x-input label="Telefon" placeholder="Telefon Giriniz" field="phoneNumber"/>
       </div>
       <div class="col-sm-4">
-        <x-input label="Şifre" placeholder="Şifre Giriniz" field="password" name="password"/>
+        <x-input type="password" label="Şifre" placeholder="Şifre Giriniz" field="password" name="password"/>
       </div>
       <div class="col-sm-4 ">
-        <x-input label="Şifre Tekrar" placeholder="Şifreyi Tekrar Giriniz" field="password_confirmation" name="password"/>
+        <x-input type="password" label="Şifre Tekrar" placeholder="Şifreyi Tekrar Giriniz" field="password_confirmation" name="password"/>
       </div>
       <div class="col-sm-4">
         <div class="row mt-4">

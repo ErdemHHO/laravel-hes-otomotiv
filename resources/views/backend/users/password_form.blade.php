@@ -1,22 +1,18 @@
 @extends("backend.shared.backend_theme")
 @section("title","Kullanıcı Modülü")
 @section("subtitle","Şifre Güncelle")
-@section("button","Kullanıcılar") 
-@section("add_new_url",url("/users")) 
+@section("btn_url",url("/users"))
+@section("btn_label","Kullanıcılar")
+@section("btn_icon","plus")
 @section("content")
   <form action="{{url("/users/$user->user_id/change-password")}}" method="POST" autocomplete="off">
     @csrf
     <div class="row mb-3">
       <div class="col-sm-6">
-        <label for="password" class="form-label">Şifre</label>
-        <input type="password" class="form-control" placeholder="Şifre Girniz" id="password" name="password" value="{{old("password")}}"  required>
-        @error("password")
-        <span class="text-danger">{{$message}}</span>
-        @enderror
+        <x-input type="password" label="Şifre" placeholder="Şifre Giriniz" field="password" name="password"/>
       </div>
       <div class="col-sm-6">
-        <label for="password-confirm" class="form-label">Şifre Tekrar</label>
-        <input type="password" class="form-control" placeholder="Şifreyi Tekrar Giriniz" id="password-confirm" name="password_confirmation" value="{{old("password_confirmation")}}" required>
+        <x-input type="password" label="Şifre Tekrar" placeholder="Şifreyi Tekrar Giriniz" field="password_confirmation" name="password"/>
       </div>
     </div>
     <div class="d-grid gap-2">

@@ -1,10 +1,11 @@
 @extends("backend.shared.backend_theme")
 @section("title","Kullanıcı Modülü")
 @section("subtitle","Kullanıcılar")
-@section("button","Yeni Kullanıcı Ekle") 
-@section("add_new_url",url("/users/create")) 
+@section("btn_url",url("/users/create"))
+@section("btn_label","Yeni Kullanıcı Ekle")
+@section("btn_icon","plus")
 @section("content")
-  <table class="table teble-responsive table-bordered mt-5">
+  <table class="table teble-responsive table-bordered mt-5 text-center">
       <thead class="text-center">
         <tr>
           <th scope="col">#</th>
@@ -38,7 +39,7 @@
                   @endif
               </td>
               <th scope="col">
-                <ul class="nav float-start">
+                <ul class="nav nav justify-content-center">
                   <li class="nav-item">
                     <a class="nav-link text-black" href="{{url("/users/$user->user_id/edit")}}">
                       <i class="bi bi-pencil-fill" style="font-size: 15px;"></i>

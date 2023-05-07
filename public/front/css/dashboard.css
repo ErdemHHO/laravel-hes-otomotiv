@@ -90,3 +90,11 @@ body {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
+.nav-item .side-link:hover{
+  background-color: #2470dc !important;
+  color: #fff !important;;
+}
+.nav-item .nav-link:hover{
+  background-color: #ffd60a;
+  color: #fff;
+}

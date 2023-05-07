@@ -1,8 +1,9 @@
 @extends("backend.shared.backend_theme")
 @section("title","Kullanıcı Modülü")
 @section("subtitle","Kullanıcı Bilgilerini Güncelle")
-@section("button","Kullanıcılar") 
-@section("add_new_url",url("/users")) 
+@section("btn_url",url("/users"))
+@section("btn_label","Kullanıcılar")
+@section("btn_icon","plus")
 @section("content")
   <form action="{{url("/users/$user->user_id")}}" method="POST">
     @csrf
@@ -10,63 +11,35 @@
     <input type="hidden" name="user_id" value="{{$user->user_id}}">
     <div class="row mb-3">
       <div class="col-sm-6">
-        <label for="name" class="form-label">Ad</label>
-        <input type="text" class="form-control" placeholder="Ad Giriniz" id="name" name="name" value="{{$user->name}}" required>
-        @error("name")
-        <span class="text-danger">{{$message}}</span>
-        @enderror
+        <x-input label="Ad" placeholder="Ad Giriniz" field="name" value="{{$user->name}}"/>
       </div>
       <div class="col-sm-6 ">
-        <label for="surname" class="form-label">Soyad</label>
-        <input type="text" class="form-control" placeholder="Soyad Giriniz" id="surname" name="surname" value="{{$user->surname}}" required>
-        @error("surname")
-        <span class="text-danger">{{$message}}</span>
-        @enderror
+        <x-input label="Soyad" placeholder="Soyad Giriniz" field="surname" value="{{$user->surname}}"/>
       </div>
     </div>
     <div class="row mb-3">
       <div class="col-sm-4">
-        <label for="email" class="form-label">E-posta</label>
-        <input type="email" class="form-control" placeholder="E-Posta Giriniz" id="email" name="email" value="{{$user->email}}" required>
-        @error("email")
-        <span class="text-danger">{{$message}}</span>
-        @enderror
+        <x-input label="E-Posta" placeholder="E-Posta Giriniz" field="email" type="email" value="{{$user->email}}"/>
       </div>
       <div class="col-sm-4  mb-3">
-        <label for="phoneNumber" class="form-label">Telefon</label>
-        <input type="tel" class="form-control" placeholder="Telefon Giriniz" id="phoneNumber" name="phoneNumber" value="{{$user->phoneNumber}}" required>
-        @error("phoneNumber")
-        <span class="text-danger">{{$message}}</span>
-        @enderror
+        <x-input label="Telefon" placeholder="Telefon Giriniz" field="phoneNumber" value="{{$user->phoneNumber}}"/>
       </div>
       <div class="col-sm-4">
         <div class="row mt-4">
           <div class="col-sm-6">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="is_admin" id="is_admin"  value="1" {{$user->is_admin==1 ? "checked" : ""}}>
-              <label class="form-check-label" for="flexCheckChecked1">
-                Admin
-              </label>
-            </div>
+            <x-checkbox field="is_admin" label="Admin" checked="{{$user->is_admin==1}}"/>
           </div>
           <div class="col-sm-6">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="is_active" id="is_active"  value="1" {{$user->is_active==1 ? "checked" : ""}}>
-              <label class="form-check-label" for="flexCheckChecked2">
-                Aktif
-              </label>
-            </div>
+            <x-checkbox field="is_active" label="Aktif" checked="{{$user->is_active==1}}"/>
           </div>
         </div>
                 
       </div>
       <div class="col-sm-6 mt-3">
-        <label for="city" class="form-label">Şehir</label>
-        <input type="text" class="form-control" placeholder="Şehir" id="city" name="city"  value="{{$user->city}}" required>
+        <x-input label="Şehir" placeholder="Şehir Giriniz" field="city" value="{{$user->city}}"/>
       </div>
       <div class="col-sm-6 mt-3">
-        <label for="ilce" class="form-label">İlçe</label>
-        <input type="text" class="form-control" id="ilce" placeholder="İlçe" name="ilce"  value="{{$user->ilce}}" required>
+        <x-input label="İlçe" placeholder="İlçe Giriniz" field="ilce" value="{{$user->ilce}}"/>
       </div>
     </div>
     <div class="mb-3">
