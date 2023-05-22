@@ -81,6 +81,7 @@ class CategoryController extends Controller
         return Redirect::to($this->returnUrl);
     }
 
+    
     /**
      * Remove the specified resource from storage.
      *

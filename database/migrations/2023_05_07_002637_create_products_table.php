@@ -25,7 +25,8 @@ class CreateProductsTable extends Migration
             $table->text("description")->nullable();
             $table->string("slug")->unique();
             $table->boolean('sales_format')->default(0);
-            $table->boolean('is_active')->default(0);
+            $table->boolean('status')->default(0);
+            $table->boolean('is_active')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });

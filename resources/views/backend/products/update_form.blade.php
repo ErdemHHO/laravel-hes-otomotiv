@@ -147,6 +147,9 @@
                 </div>
             </div>
             <div class="col-sm-1 mt-2">
+                <x-checkbox field="status" label="Çıkma" checked="{{$product->status==1}}"/>
+            </div>
+            <div class="col-sm-1 mt-2">
                 <x-checkbox field="is_active" label="Aktif" checked="{{$product->is_active==1}}"/>
             </div>
             <div class="col-sm-1 mt-2">

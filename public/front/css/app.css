@@ -344,12 +344,6 @@ a{
 	font-weight: 600;
 }
 
-.parts__container .box span {
-	font-size: 1.1rem;
-	font-weight: 600;
-	color: var(--main-color);
-}
-
 .parts__container .box p {
 	color: var(--main-color);
 	font-size: 0.9rem;
@@ -400,6 +394,12 @@ a{
     color: #000 !important;
 }
 
+.gallery {
+	display: flex;
+  }
+  .gallery a {
+	margin-right: 10px;
+  }
 
 /* =========================== BLOG =============================== */
 .blog__container {
@@ -666,4 +666,28 @@ a{
 
 
 
+.product-thumbs .swiper-slide img {
+	border:2px solid transparent;
+	object-fit: cover;
+	cursor: pointer;
+  }
+  .product-thumbs .swiper-slide-active img {
+	border-color: #bc4f38;
+  }
+  .product-slider .swiper-button-next:after,
+  .product-slider .swiper-button-prev:after {
+	  font-size: 20px;
+	  color: #000;
+	  font-weight: bold;
+  }
 
+
+
+
+
+
+
+
+
+
+  

@@ -20,7 +20,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->returnUrl = "/products";
+        $this->returnUrl = "/products/product";
     }
 
     /**
@@ -47,7 +47,6 @@ class ProductController extends Controller
         $series= Seri::all();
         return view("backend.products.insert_form",["categories"=>$categories,"brands"=>$brands,"cars"=>$cars,"series"=>$series]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -122,6 +121,13 @@ class ProductController extends Controller
     
         return Redirect::to($this->returnUrl);
     }
+
+    public function show(): View
+    {
+        $products = Product::all();
+        return view("backend.products.index", ["products" => $products]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *

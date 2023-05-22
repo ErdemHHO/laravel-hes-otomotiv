@@ -39,6 +39,13 @@
                                     Sil
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black"
+                                   href="{{url("/cars/$car->car_id/images")}}">
+                                   <i class="bi bi-image" style="font-size: 15px;"></i>
+                                    Fotoğraflar
+                                </a>
+                            </li>
                         </ul>
                     </td>
                 </tr>

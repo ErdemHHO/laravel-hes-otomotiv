@@ -34,6 +34,13 @@
                     <td>{{$product->cost_price}} ₺</td>
                     <td>{{$product->price}} ₺</td>
                     <td>
+                        @if($product->status == 1)
+                            <span class="badge bg-danger">2. El ( Çıkma ) </span>
+                        @else
+                            <span class="badge bg-warning">Sıfır</span>
+                        @endif
+                    </td>
+                    <td>
                         @if($product->sales_format == 1)
                             <span class="badge bg-danger">Takım</span>
                         @else

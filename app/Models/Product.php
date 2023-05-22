@@ -25,6 +25,7 @@ class Product extends Model
         "description",
         "slug",
         "sales_format",
+        "status",
         "is_active",
     ];
     

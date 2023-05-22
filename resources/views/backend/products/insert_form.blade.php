@@ -120,7 +120,7 @@
                 </div>
             </div>
             <div class="col-sm-2 mt-2">
-                <x-checkbox field="is_active" label="Aktif Ürün"/>
+                <x-checkbox field="status" label="Çıkma Yedek Parça"/>
             </div>
             <div class="col-sm-2 mt-2">
                 <x-checkbox field="sales_format" label="Takım Halinde"/>

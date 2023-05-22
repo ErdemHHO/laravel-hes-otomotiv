@@ -28,4 +28,8 @@ class Car extends Model
     {
         return $this->belongsToMany(Product::class, 'carProducts', 'car_id', 'product_id');
     }
+    public function images()
+    {
+        return $this->hasMany(CarImage::class, "car_id", "car_id");
+    }
 }
